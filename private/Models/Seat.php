@@ -4,40 +4,40 @@ namespace Models;
 
 class Seat
 {
-    protected $id;
-    protected $seat_nr;
-    protected $status;
-    protected $price;
+    protected int $id;
+    protected int $seat_nr;
+    protected string $status;
+    protected float $price;
 
     // GET METHODS
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getSeatNr()
+    public function getSeatNr(): int
     {
         return $this->seat_nr;
     }
 
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->status;
     }
 
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->price;
     }
 
 
     // SET METHODS
-    public function setStatus(string $status)
+    public function setStatus(string $status): void
     {
         $this->status = $status;
     }
 
-    public function setPrice(string $price)
+    public function setPrice(string $price): void
     {
         $this->price = $price;
     }

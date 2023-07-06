@@ -16,7 +16,7 @@ class Database
         return $con;
     }
 
-    public function query($query,$data = array(),$data_type = "object")
+    public function query($query,$data = array(),$data_type = "object"): bool|array
     {
 
         $con = $this->connect();
