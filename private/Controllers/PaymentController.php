@@ -4,10 +4,10 @@ namespace Controllers;
 
 use Core\Controller;
 
-class SeatController extends Controller
+class PaymentController extends Controller
 {
     function index(): void
     {
-        $this->view("seat");
+        $this->view("payment");
     }
 }
