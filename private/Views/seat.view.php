@@ -30,58 +30,36 @@
         <div class="screen"></div>
 
         <div class="row">
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat" data-price="2500" data-nr="1"></div>
-            <div class="seat" data-price="2500" data-nr="2"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat occupied" data-nr="1"></div>
+            <div class="seat occupied" data-nr="2"></div>
+            <div class="seat occupied" data-nr="3"></div>
+            <div class="seat" data-nr="4"></div>
+            <div class="seat" data-nr="5"></div>
+            <div class="seat occupied" data-nr="6"></div>
+            <div class="seat occupied" data-nr="7"></div>
+            <div class="seat occupied" data-nr="8"></div>
         </div>
 
         <div class="row">
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat occupied" data-nr="9"></div>
+            <div class="seat occupied" data-nr="10"></div>
+            <div class="seat occupied" data-nr="11"></div>
+            <div class="seat occupied" data-nr="12"></div>
+            <div class="seat occupied" data-nr="13"></div>
+            <div class="seat occupied" data-nr="14"></div>
+            <div class="seat occupied" data-nr="15"></div>
+            <div class="seat occupied" data-nr="16"></div>
         </div>
 
         <div class="row">
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-        </div>
-
-        <div class="row">
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-        </div>
-
-        <div class="row">
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
+            <div class="seat occupied" data-nr="17"></div>
+            <div class="seat occupied" data-nr="18"></div>
+            <div class="seat occupied" data-nr="19"></div>
+            <div class="seat occupied" data-nr="20"></div>
+            <div class="seat occupied" data-nr="21"></div>
+            <div class="seat occupied" data-nr="22"></div>
+            <div class="seat occupied" data-nr="23"></div>
+            <div class="seat occupied" data-nr="24"></div>
         </div>
     </div>
 
