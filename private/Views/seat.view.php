@@ -1,3 +1,4 @@
+<?php include 'private/Controllers/protect.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +33,8 @@
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
-            <div class="seat" data-price="2500"></div>
-            <div class="seat" data-price="2500"></div>
+            <div class="seat" data-price="2500" data-nr="1"></div>
+            <div class="seat" data-price="2500" data-nr="2"></div>
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
@@ -88,7 +89,7 @@
         <span id="count">0</span> helyet foglalt le <span id="price">0</span> forintért.
     </p>
     <p>
-        <a href="payment.view.php">Fizetek</a>
+        <a href="payment.view.php" id="payment" class="disable_a_href">Fizetek</a>
     </p>
 </body>
 
