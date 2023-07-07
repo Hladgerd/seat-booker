@@ -85,7 +85,9 @@
     <p class="text">
         <span id="count">0</span> helyet foglalt le <span id="price">0</span> forintért.
     </p>
-
+    <p>
+        <a href="payment.view.php">Fizetek</a>
+    </p>
 </body>
 
 </html>
