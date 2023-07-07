@@ -5,7 +5,7 @@ namespace Core;
 
 abstract class Controller
 {
-    protected array $route_params = [];
+    private array $route_params = [];
 
     public function __construct(array $route_params)
     {

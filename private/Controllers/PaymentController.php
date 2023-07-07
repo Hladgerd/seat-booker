@@ -7,9 +7,26 @@ use Core\View;
 
 class PaymentController extends Controller
 {
+
     public function indexAction(): void
     {
         View::render('payment');
+    }
+
+    public function pay(): void
+    {
+        if (isset($_POST['submit']))
+        {
+            if (isset($_COOKIE['selected']))
+            {
+                $this->sendEmail();
+                $this->deleteCookie();
+            }
+            else
+            {
+                echo '<script type="text/javascript">alert("Lejárt a fizetési idő, válasszon ki egy széket!");</script>';
+            }
+        }
     }
 
     private function sendEmail(): void
@@ -40,19 +57,4 @@ class PaymentController extends Controller
         setcookie('selected', "", time() - 3600);
     }
 
-    public function pay(): void
-    {
-        if (isset($_POST['submit']))
-        {
-            if (isset($_COOKIE['selected']))
-            {
-                $this->sendEmail();
-                $this->deleteCookie();
-            }
-            else
-            {
-                echo '<script type="text/javascript">alert("Lejárt a fizetési idő, válasszon ki egy széket!");</script>';
-            }
-        }
-    }
 }
