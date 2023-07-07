@@ -1,6 +1,12 @@
 <?php
-session_start();
 
 require("../private/config/autoload.php");
 
-$app = new App();
+$router = new Core\Router();
+
+// Add the routes
+$router->add('', ['controller' => 'SeatController', 'action' => 'indexAction']);
+$router->add('{controller}/{action}');
+
+$router->dispatch($_SERVER['QUERY_STRING']);
+
