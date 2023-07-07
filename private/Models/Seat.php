@@ -2,65 +2,46 @@
 
 namespace Models;
 
-class Seat
+use Core\Model;
+
+class Seat extends Model
 {
-    private int $id;
-    private string $status;
-    private string $age;
-    private int $price;
+    private mixed $db;
 
-    // GET METHODS
-    public function getId(): int
+    public function __construct()
     {
-        return $this->id;
+        $this->db = self::getDB();
     }
 
-    public function getStatus(): string
+    public function getAll()
     {
-        return $this->status;
+        $statement = $this->db->query('SELECT * FROM seats ORDER BY seatID');
+        return $statement->fetchAll(\PDO::FETCH_OBJ);
     }
 
-    public function getAge(): int
+    public function getStatusById(int $id): string
     {
-        return $this->age;
-    }
-
-    public function getPrice(): int
-    {
-        return $this->price;
+        $statement = $this->db->prepare('SELECT status FROM seats WHERE seatID = :id');
+        $statement->bindParam(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch(\PDO::FETCH_OBJ);
     }
 
 
-    // SET METHODS
-    public function setStatus(string $status): void
+    public function getPriceById(int $id): int
     {
-        $this->status = $status;
+        $statement = $this->db->query('SELECT price FROM seats WHERE seatID = :id');
+        $statement->bindParam(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch(\PDO::FETCH_OBJ);
     }
 
-    public function setPrice(string $price): void
+    public function updateStatusById(int $id, string $status)
     {
-        $this->price = $price;
+        $statement = $this->db->prepare('UPDATE seats SET status = :status, WHERE seatID = :id');
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->bindValue(':status', $status);
+        return $statement->execute();
     }
 
-
-    // CRUD OPERATIONS
-    public function create(array $data)
-    {
-
-    }
-
-    public function read(int $id)
-    {
-
-    }
-
-    public function update(int $id, array $data)
-    {
-
-    }
-
-    public function delete(int $id)
-    {
-
-    }
 }
