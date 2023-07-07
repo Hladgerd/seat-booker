@@ -4,10 +4,10 @@ namespace Models;
 
 class Seat
 {
-    protected int $id;
-    protected int $seat_nr;
-    protected string $status;
-    protected float $price;
+    private int $id;
+    private string $status;
+    private string $age;
+    private int $price;
 
     // GET METHODS
     public function getId(): int
@@ -15,17 +15,17 @@ class Seat
         return $this->id;
     }
 
-    public function getSeatNr(): int
-    {
-        return $this->seat_nr;
-    }
-
     public function getStatus(): string
     {
         return $this->status;
     }
 
-    public function getPrice(): float
+    public function getAge(): int
+    {
+        return $this->age;
+    }
+
+    public function getPrice(): int
     {
         return $this->price;
     }
