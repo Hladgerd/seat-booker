@@ -3,11 +3,12 @@
 namespace Controllers;
 
 use Core\Controller;
+use Core\View;
 
 class SeatController extends Controller
 {
-    function index(): void
+    public function indexAction(): void
     {
-        $this->view("seat");
+        View::render('seat');
     }
 }
