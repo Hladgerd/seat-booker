@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/public/static/style.css" />
+    <script src="/public/static/script.js" defer type="text/javascript"></script>
     <title>Movie Seat Booking</title>
+
 </head>
 
 <body>
@@ -30,8 +32,8 @@
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
+            <div class="seat" data-price="2500"></div>
+            <div class="seat" data-price="2500"></div>
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
             <div class="seat occupied"></div>
