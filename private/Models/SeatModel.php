@@ -27,7 +27,6 @@ class SeatModel extends Model
         return $statement->fetch(\PDO::FETCH_OBJ);
     }
 
-
     public function getPriceById(int $id): int
     {
         $statement = $this->db->query('SELECT price FROM seats WHERE seatID = :id');
