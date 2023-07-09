@@ -13,12 +13,12 @@
     <h4>Adja meg email címét</h4>
     <form method="post">
         <fieldset>
-            <label>Név</label>
-            <input type="text" name="name">
+            <label for="name">Név</label>
+            <input type="text" name="name" id="name">
         </fieldset>
         <fieldset>
-            <label>Email</label>
-            input type="email" name="email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
         </fieldset>
         <fieldset>
             <button type="submit" name="submit">Küldés</button>
