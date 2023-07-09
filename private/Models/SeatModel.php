@@ -4,7 +4,7 @@ namespace Models;
 
 use Core\Model;
 
-class Seat extends Model
+class SeatModel extends Model
 {
     private mixed $db;
 
