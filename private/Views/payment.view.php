@@ -1,4 +1,4 @@
-<?php include "private/Controllers/PaymentController.php"; ?>
+<?php include "private/Controllers/Payment.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
