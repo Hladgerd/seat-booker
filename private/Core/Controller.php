@@ -5,9 +5,16 @@ namespace Core;
 
 abstract class Controller
 {
+    private View $view;
+
+    public function __construct()
+    {
+        $this->view = new View();
+    }
+
     public function index(string $view): void
     {
-        View::render($view);
+        $this->view->render($view);
     }
 
     public function redirect(string $link)
