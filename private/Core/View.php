@@ -4,8 +4,7 @@ namespace Core;
 
 class View
 {
-
-    public static function render(string $view): void
+    public function render(string $view): void
     {
         $file = "private/Views/$view.view.php";
 
