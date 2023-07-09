@@ -9,4 +9,10 @@ abstract class Controller
     {
         View::render($view);
     }
+
+    public function redirect(string $link)
+    {
+        header("Location: ". ROOT . "/".trim($link,"/"));
+        exit();
+    }
 }
