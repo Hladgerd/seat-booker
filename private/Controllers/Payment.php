@@ -3,15 +3,9 @@
 namespace Controllers;
 
 use Core\Controller;
-use Core\View;
 
-class PaymentController extends Controller
+class Payment extends Controller
 {
-
-    public function indexAction(): void
-    {
-        View::render('payment');
-    }
 
     public function pay(): void
     {
