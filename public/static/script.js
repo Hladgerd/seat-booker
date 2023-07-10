@@ -3,10 +3,8 @@ const container = document.querySelector('.container');
 const seats = document.querySelectorAll('.row .seat:not(.occupied)');
 const count = document.querySelector('#count');
 const price = document.querySelector('#price');
-const payment = document.querySelector('#payment');
 
-const seatPrice = document.querySelector('.seat');
-let ticketPrice = +seatPrice.dataset.price;
+
 
 const populateUI = () => {
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
@@ -22,17 +20,23 @@ const populateUI = () => {
 
 populateUI();
 
-const updateSelectedSeatsCount = () => {
+const updateCounters = () => {
     const selectedSeats = document.querySelectorAll('.row .selected');
-    const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
+    updateSelectedSeatsCount(selectedSeats);
+    updateTotalPrice(selectedSeats);
+}
 
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+const updateSelectedSeatsCount = (selectedSeats) => {
+    const seatIDs = [...selectedSeats].map(() => [...seats].id);
+    localStorage.setItem('selectedSeats', JSON.stringify(seatIDs));
 
-    const selectedSeatsCount = selectedSeats.length;
-
-    count.innerText = selectedSeatsCount;
-    price.innerText = selectedSeatsCount * ticketPrice;
+    count.innerText = selectedSeats.length;
 };
+
+const updateTotalPrice = (selectedSeats) => {
+    const prices = [...selectedSeats].map(seat => +seat.dataset.price);
+    price.innerText = prices.reduce((a, b) => a + b, 0);
+}
 
 container.addEventListener('click', e => {
     if (
@@ -40,13 +44,16 @@ container.addEventListener('click', e => {
         !e.target.classList.contains('occupied')
     ) {
         e.target.classList.toggle('selected');
-        if (e.target.classList.contains('selected') && getCookie('selected') == null) {
-            createCookie('selected', e.target.dataset.nr, cookieIdle);
+        if (
+            e.target.classList.contains('selected') &&
+            getCookie('selected') == null
+        ) {
+            createCookie('selected', e.target.id, cookieIdle);
         } else {
             deleteCookie('selected');
         }
 
-        updateSelectedSeatsCount();
+        updateCounters();
     }
 
 });
