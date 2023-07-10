@@ -5,7 +5,6 @@ const count = document.querySelector('#count');
 const price = document.querySelector('#price');
 
 
-
 const populateUI = () => {
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
 
@@ -65,17 +64,17 @@ const createCookie = (name, value, minutes) => {
     let expires;
     if (minutes) {
         const date = new Date();
-        date.setTime(date.getTime()+(minutes*60*1000));
-        expires = "; expires="+date.toUTCString();
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
     } else {
         expires = "";
     }
-    document.cookie = name+"="+value+expires+"; path=/";
+    document.cookie = name + "=" + value + expires + "; path=/";
 }
 
 const deleteCookie = (name) => {
     const expires = 'Thu, 01 Jan 1970 00:00:00 UTC';
-    document.cookie = name+"="+expires+"; path=/";
+    document.cookie = name + "=" + expires + "; path=/";
 }
 
 const getCookie = (name) => {

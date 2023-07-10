@@ -16,16 +16,12 @@ class Payment extends Controller
     {
         $seatIDs = $this->getSeatIDs();
 
-        if (isset($_POST['submit']))
-        {
-            if (count($seatIDs) > 0)
-            {
+        if (isset($_POST['submit'])) {
+            if (count($seatIDs) > 0) {
                 $this->sendEmail();
                 array_map('deleteCookie', $seatIDs);
                 array_map('updateSeatStatus', $seatIDs);
-            }
-            else
-            {
+            } else {
                 echo '<script type="text/javascript">alert("Lejárt a fizetési idő, válasszon ki egy széket!");</script>';
             }
         }
@@ -41,13 +37,10 @@ class Payment extends Controller
         $headers = "From:" . $from;
         $result = mail($to, $subject, $message, $headers);
 
-        if ($result)
-        {
+        if ($result) {
             echo '<script type="text/javascript">alert("Email elküldve!");</script>';
 
-        }
-        else
-        {
+        } else {
             echo '<script type="text/javascript">alert("Sikertelen! Próbálja meg újra!");</script>';
         }
         echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
@@ -69,11 +62,10 @@ class Payment extends Controller
         $cookieName = '/\bseatID/';
         $seatIDs = array();
 
-        foreach($_COOKIE as $key=>$val) {
+        foreach ($_COOKIE as $key => $val) {
             if (str_contains($key, $cookieName)) {
                 array_push($seatIDs, $key);
             }
-
         }
         return $seatIDs;
     }
