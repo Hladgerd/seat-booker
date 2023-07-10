@@ -1,5 +1,3 @@
-<?php include 'private/Controllers/protect.php'?>
-<?php include 'private/Controllers/Seat.php'?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -53,7 +51,7 @@
         <span id="count">0</span> helyet foglalt le <span id="price">0</span> forintért.
     </p>
     <p>
-        <a href="href="<?=ROOT?>/payment" id="payment" class="disable_a_href">Fizetek</a>
+        <a href="href="<?=ROOT?>/payment" id="payment">Fizetek</a>
     </p>
 </body>
 
