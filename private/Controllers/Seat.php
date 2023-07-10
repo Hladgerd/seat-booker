@@ -3,15 +3,17 @@
 namespace Controllers;
 
 use Core\Controller;
-use Models\SeatModel;
 
 class Seat extends Controller
 {
-    private $model;
-
-    public function __construct()
+    public function getSeatStatus(int $id): string
     {
-        $this->model = new SeatModel();
+        return $this->model->getStatusById($id);
+    }
+
+    public function getSeatPrice(int $id): int
+    {
+        return $this->model->getPriceById($id);
     }
 
 }
