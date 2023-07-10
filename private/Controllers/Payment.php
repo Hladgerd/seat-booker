@@ -6,9 +6,16 @@ use Core\Controller;
 
 class Payment extends Controller
 {
-
-    public function pay(int $seatId): void
+    public function index(): void
     {
+        $this->view->render("payment", "");
+        $this->pay();
+    }
+
+    private function pay(): void
+    {
+        $seatId = $_COOKIE['selected'];
+
         if (isset($_POST['submit']))
         {
             if (isset($_COOKIE['selected']))
@@ -54,7 +61,7 @@ class Payment extends Controller
 
     private function updateSeatStatus(int $id): void
     {
-        $this->model->updateStatusById($id);
+        $this->model->updateStatusById($id, "occupied");
     }
 
 }
