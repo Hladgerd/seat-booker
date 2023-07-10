@@ -7,7 +7,7 @@ use Core\Controller;
 class Payment extends Controller
 {
 
-    public function pay(): void
+    public function pay(int $seatId): void
     {
         if (isset($_POST['submit']))
         {
@@ -15,6 +15,7 @@ class Payment extends Controller
             {
                 $this->sendEmail();
                 $this->deleteCookie();
+                $this->updateSeatStatus($seatId);
             }
             else
             {
@@ -49,6 +50,11 @@ class Payment extends Controller
     private function deleteCookie(): void
     {
         setcookie('selected', "", time() - 3600);
+    }
+
+    private function updateSeatStatus(int $id): void
+    {
+        $this->model->updateStatusById($id);
     }
 
 }
