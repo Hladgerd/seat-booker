@@ -14,15 +14,15 @@ class Payment extends Controller
 
     private function pay(): void
     {
-        $seatId = $_COOKIE['selected'];
+        $seatIDs = $this->getSeatIDs();
 
         if (isset($_POST['submit']))
         {
-            if (isset($_COOKIE['selected']))
+            if (count($seatIDs) > 0)
             {
                 $this->sendEmail();
-                $this->deleteCookie();
-                $this->updateSeatStatus($seatId);
+                array_map('deleteCookie', $seatIDs);
+                array_map('updateSeatStatus', $seatIDs);
             }
             else
             {
@@ -54,14 +54,28 @@ class Payment extends Controller
 
     }
 
-    private function deleteCookie(): void
+    private function deleteCookie(string $cookieName): void
     {
-        setcookie('selected', "", time() - 3600);
+        setcookie($cookieName, "", time() - 3600);
     }
 
     private function updateSeatStatus(int $id): void
     {
         $this->model->updateStatusById($id, "occupied");
+    }
+
+    private function getSeatIDs(): array
+    {
+        $cookieName = '/\bseatID/';
+        $seatIDs = array();
+
+        foreach($_COOKIE as $key=>$val) {
+            if (str_contains($key, $cookieName)) {
+                array_push($seatIDs, $key);
+            }
+
+        }
+        return $seatIDs;
     }
 
 }
