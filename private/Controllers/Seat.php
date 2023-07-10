@@ -6,14 +6,11 @@ use Core\Controller;
 
 class Seat extends Controller
 {
-    public function getSeatStatus(int $id): string
+    public function index(): void
     {
-        return $this->model->getStatusById($id);
-    }
-
-    public function getSeatPrice(int $id): int
-    {
-        return $this->model->getPriceById($id);
+        $dataSet = $this->model->getAll();
+        $this->view->render("seat", $dataSet);
     }
 
 }
+
