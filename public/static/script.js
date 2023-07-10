@@ -45,12 +45,15 @@ container.addEventListener('click', e => {
     ) {
         e.target.classList.toggle('selected');
         if (
-            e.target.classList.contains('selected') &&
-            getCookie('selected') == null
+            e.target.classList.contains('selected')
         ) {
-            createCookie('selected', e.target.id, cookieIdle);
+            if (
+                getCookie('seatID' + e.target.id) == null
+            ) {
+                createCookie('seatID' + e.target.id, e.target.id, cookieIdle);
+            }
         } else {
-            deleteCookie('selected');
+            deleteCookie('seatID' + e.target.id);
         }
 
         updateCounters();
